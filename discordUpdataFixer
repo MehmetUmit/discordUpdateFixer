@@ -1,0 +1,9 @@
+# !/bin/sh
+# author: Mehmet Ümit Özden
+echo "Path of discord searching..."
+target_path=$(find discord/resources/build_info.json / 2>/dev/null | grep discord/resources/build_info.json)
+sudo chmod a+rw $target_path 
+old_version=$(cat $target_path | grep version | awk -F ":" '{printf"%s",$2}')
+echo "Current version:$old_version"
+read -p "Enter new version of discord:" new_version
+printf "{\n\t\"releaseChannel\": \"stable\",\n\t\"version\":\"$new_version\"\n}" > $target_path
