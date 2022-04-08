@@ -1,5 +1,6 @@
-# !/bin/sh
-# author: Mehmet Ümit Özden
+#!/bin/sh
+#author: Mehmet Ümit Özden
+
 echo "Path of discord searching..."
 target_path=$(find discord/resources/build_info.json / 2>/dev/null | grep discord/resources/build_info.json)
 sudo chmod a+rw $target_path 
